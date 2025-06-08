@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const dispatchReportController_1 = require("../controllers/dispatchReportController");
+const router = (0, express_1.Router)();
+router.get('/', dispatchReportController_1.getDispatchReports);
+router.get('/companies', dispatchReportController_1.getCompanies);
+router.get('/vehicles', dispatchReportController_1.getVehicles);
+router.get('/:date/summary', dispatchReportController_1.getSummary);
+router.put('/:date/summary', dispatchReportController_1.updateSummary);
+router.get('/:date/rows', dispatchReportController_1.getDispatchRows);
+router.post('/:date/rows', dispatchReportController_1.addDispatchRow);
+router.delete('/:date/rows/:rowId', dispatchReportController_1.deleteDispatchRow);
+router.post('/:date/rows/:rowId', dispatchReportController_1.updateDispatchRow);
+exports.default = router;
